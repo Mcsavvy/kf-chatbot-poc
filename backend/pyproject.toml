@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "kf-chatbot-poc"
+version = "0.0.1"
+description = "A POC of how the chatbot would work"
+authors = ["Dave Mcsavvy <davemcsavvii@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.115.8"
+alembic = "^1.14.1"
+sqlalchemy = "^2.0.38"
+python-socketio = "^5.12.1"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+langchain = "^0.3.18"
+langchain-anthropic = "^0.3.7"
+pydantic-settings = "^2.7.1"
+pydantic = "^2.10.6"
+uvicorn = "^0.34.0"
+psycopg2-binary = "^2.9.10"
+
+
+[tool.poetry.group.dev.dependencies]
+ipython = "^8.32.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.isort]
+profile = "black"
+
+[tool.ruff]
+line-length = 80
+indent-width = 4
+target-version = "py310"
+exclude = [
+    ".git",
+    "__pycache__",
+    "migrations",
+    ".venv",
+    ".vscode",
+    ".ruff_cache",
+    ".mypy_cache",
+    ".pytest_cache",
+    "*.ipynb"
+]
+
+[tool.mypy]
+ignore_missing_imports = true
+disable_error_code = [
+    "import-not-found"
+]
